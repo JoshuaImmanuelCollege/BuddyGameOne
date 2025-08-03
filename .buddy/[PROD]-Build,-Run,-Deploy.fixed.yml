@@ -1,0 +1,17 @@
+- pipeline: prod__build__run__deploy
+  name: "[PROD] Build, Run, Deploy"
+  refs:
+  - refs/heads/main
+  events:
+  - type: PUSH
+  fail_on_prepare_env_warning: true
+  resources: NANO
+  actions:
+  - action: netlify deploy --dir=. --prod 2
+    type: NETLIFY
+    version: 20
+    site_id: gamingwithbuddy
+    integration: netlify
+    execute_commands:
+    - netlify deploy --dir=. --prod
+    shell: BASH
