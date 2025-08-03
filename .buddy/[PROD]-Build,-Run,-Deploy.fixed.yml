@@ -1,0 +1,8 @@
+- pipeline: prod__build__run__deploy
+  name: "[PROD] Build, Run, Deploy"
+  refs:
+  - refs/heads/main
+  events:
+  - type: PUSH
+  fail_on_prepare_env_warning: true
+  resources: NANO
